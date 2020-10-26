@@ -2,6 +2,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+typedef struct
+{
+	char* buffer;
+	size_t buffer_length;
+	ssize_t buffer_size;
+} InputBuffer;
+
 
 int main(int argc, char* argv[])
 {
