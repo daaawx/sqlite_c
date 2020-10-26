@@ -9,13 +9,21 @@ typedef struct
 	ssize_t buffer_size;
 } InputBuffer;
 
+InputBuffer* new_input_buffer()
+{
+	InputBuffer* input_buffer = (InputBuffer*)malloc(sizeof(InputBuffer));
+	input_buffer->buffer = NULL;
+	input_buffer->buffer_length = 0;
+	input_buffer->buffer_size = 0;
+	return input_buffer;
+}
 
 int main(int argc, char* argv[])
 {
-	InputBuffer input_buffer = create_input_buffer();
+	InputBuffer* input_buffer = new_input_buffer();
 	while (true)
 	{
-		print_promt();
+		print_prompt();
 		read_input(input_buffer);
 
 		if (strcomp(input_buffer->buffer, '.exit') == 0)
